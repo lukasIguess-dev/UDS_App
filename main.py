@@ -1,13 +1,8 @@
-from datetime import date
-import time
-import json
+from get_data import MensaarData
 
-today = date.fromtimestamp(time.time())
 
-with open("json_data.json", "r") as read_file:
-    data = json.load(read_file)
+Mensaar = MensaarData()
+data = Mensaar.get_today()
 
-meal_date = data["days"][0]["date"]
-meal_2 = data["days"][0]["counters"][3]
-
-print(meal_2)
+meal_date = data["date"]
+print(meal_date)
